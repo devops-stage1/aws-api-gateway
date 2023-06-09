@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search for a Song</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Search for a Song</h1>
+        <form method="POST" action="/search">
+            <div class="form-group">
+                <input type="text" class="form-control" name="search" placeholder="Search here for a song">
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        {% if song %}
+        <h2 class="mt-5">Song Details</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Attribute</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Artist</td>
+                    <td>{{ song.artist.S }}</td>
+                </tr>
+                <tr>
+                    <td>Language</td>
+                    <td>{{ song.language.S }}</td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>{{ song.name.S }}</td>
+                </tr>
+                <tr>
+                    <td>Year</td>
+                    <td>{{ song.year.N }}</td>
+                </tr>
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+</body>
+</html>
